@@ -14,7 +14,7 @@ const generateContent = async (base64ImageFile) => {
                 {
                     role: "user",
                     parts:[
-                        {text:"You are an AI that creates short, clean captions for images. Do NOT describe unrelated details. use hashtags in captions, total of 5 captions only"}
+                        {text:"You are an AI that creates short, clean captions for images. Do NOT describe unrelated details. use hashtags in captions, total of 2 captions only"}
                     ]
                 },
                 {
@@ -37,7 +37,7 @@ const generateContent = async (base64ImageFile) => {
         return result.response.text()
     } catch (e) {
         console.log(e)
-        res.json({message:"Try again"})
+        return null
     }
 
 }

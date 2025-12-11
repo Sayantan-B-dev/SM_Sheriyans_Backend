@@ -7,7 +7,9 @@ const createPostController=async(req,res)=>{
     const base64Image=Buffer.from(file.buffer).toString('base64')
     
     const caption=await generateContent(base64Image)
-
+    if (!caption) {
+        return res.status(500).json({ message: "AI failed, try again" });
+    }
     console.log("Generated caption : ",caption)
     res.json({Generated_caption:caption})
 }
