@@ -342,31 +342,37 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "SHORT-TERM MEMORY"
-        S1[Latest Message] --> S2[Message 2]
+    subgraph SHORT-TERM_MEMORY
+        S1[Latest Message]
+        S1 --> S2[Message 2]
         S2 --> S3[Message 3]
         S3 --> S20[...Message 20]
     end
     
-    subgraph "LONG-TERM MEMORY"
-        L1[Vector Cluster 1<br/>Pets & Animals] --> L1a["🐱 'I love my cat'"]
-        L1 --> L1b["🐶 'My dog is cute'"]
+    subgraph LONG-TERM_MEMORY
+        L1[Vector Cluster 1: Pets and Animals]
+        L1 --> L1a[Memory: I love my cat]
+        L1 --> L1b[Memory: My dog is cute]
         
-        L2[Vector Cluster 2<br/>Programming] --> L2a["💻 'How to use React'"]
-        L2 --> L2b["🔧 'Debugging tips'"]
+        L2[Vector Cluster 2: Programming]
+        L2 --> L2a[Memory: How to use React]
+        L2 --> L2b[Memory: Debugging tips]
         
-        L3[Vector Cluster 3<br/>Travel] --> L3a["✈️ 'Paris was amazing'"]
-        L3 --> L3b["🏝️ 'Beach vacation'"]
+        L3[Vector Cluster 3: Travel]
+        L3 --> L3a[Memory: Paris was amazing]
+        L3 --> L3b[Memory: Beach vacation]
     end
     
-    Current[New Message: "Tell me about cats"] -->|Vector Similarity| L1
+    Current[New message about cats]
+    Current -->|Vector similarity| L1
     Current -->|Time-based| S1
     
-    L1 --> Context["🧠 Combined Context:<br/>'I love my cat' + Last 20 messages"]
+    L1 --> Context[Combined Context from Memory]
     S1 --> Context
     
-    Context --> AI[🤖 GROQ LLM]
-    AI --> Response["Response about cats<br/>with personal context"]
+    Context --> AI[Groq LLM]
+    AI --> Response[Response about cats with context]
+
 ```
 
 ---
