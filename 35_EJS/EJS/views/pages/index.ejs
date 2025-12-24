@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+
+<section class="hero">
+<h1>Welcome, <%= user?.name || 'Guest' %></h1>
+<p>Pick a game — locally multiplayer or single-player browser fun.</p>
+
+
+<div class="grid">
+<a class="card" href="/tictactoe">
+<h3>Tic Tac Toe (2-player)</h3>
+<p>Classic X / O, play with a friend on the same keyboard.</p>
+</a>
+
+
+<a class="card" href="/puzzle">
+<h3>Sliding Puzzle (3x3)</h3>
+<p>Rearrange the tiles to form a completed grid.</p>
+</a>
+
+
+<a class="card" href="/snake">
+<h3>Snake</h3>
+<p>Canvas-based snake. Arrow keys to move.</p>
+</a>
+
+
+</div>
+</section>
+
+
+<%- include('../partials/footer') %>

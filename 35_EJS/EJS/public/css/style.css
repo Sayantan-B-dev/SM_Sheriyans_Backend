@@ -1,0 +1,317 @@
+/* =========================
+   Root + Reset
+========================= */
+
+:root {
+  --bg: #0b1220;
+  --panel: #071028;
+  --panel-soft: #0e1a33;
+  --accent: #7dd3fc;
+  --accent-2: #00e676;
+  --danger: #ff4d4d;
+  --text: #e6eef8;
+  --muted: #9aa4b2;
+  --border: rgba(255,255,255,0.08);
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+main.container {
+  min-height: calc(100vh - 140px);
+}
+
+/* =========================
+   Header / Navigation
+========================= */
+
+.site-header {
+  background: #041226;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav a {
+  margin-left: 14px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.nav a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 16px;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+button {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   Home Page Cards
+========================= */
+
+.hero h1 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* =========================
+   Tic Tac Toe
+========================= */
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.ttt-cell {
+  width: 110px;
+  height: 110px;
+  background: var(--panel-soft);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.ttt-cell:hover {
+  border-color: var(--accent);
+}
+
+#ttt-status {
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* =========================
+   Sliding Puzzle FIX
+========================= */
+
+.puzzle {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 8px;
+  margin: 20px auto;
+}
+
+.puzzle-tile {
+  width: 100px;
+  height: 100px;
+  background: var(--panel-soft);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.puzzle-tile.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+
+/* =========================
+   Snake Game
+========================= */
+
+canvas#snake-canvas {
+  background: #020617;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: block;
+  margin: 16px 0;
+}
+
+#snake-score {
+  font-weight: 600;
+  color: var(--accent-2);
+}
+
+/* =========================
+   Gravity Playground FIX
+========================= */
+
+#playground {
+  width: 800px;
+  height: 400px;
+  background: var(--panel-soft);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  position: relative;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.g-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: absolute;
+  touch-action: none;
+}
+
+/* =========================
+   Text Helpers
+========================= */
+
+p {
+  color: var(--muted);
+}
+
+h1, h2, h3 {
+  color: var(--text);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 600px) {
+  .ttt-board {
+    grid-template-columns: repeat(3, 90px);
+  }
+
+  .ttt-cell {
+    width: 90px;
+    height: 90px;
+    font-size: 34px;
+  }
+
+  .puzzle-tile {
+    width: 80px;
+    height: 80px;
+  }
+}
+/* =========================
+   Game Center Layout
+========================= */
+
+.game-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 🔥 important */
+  text-align: center;
+  width: 100%;
+}
+
+.game-center canvas,
+.game-center .ttt-board,
+.game-center .puzzle,
+.game-center #playground {
+  margin-left: auto;
+  margin-right: auto;
+}
